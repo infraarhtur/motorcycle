@@ -1,0 +1,13 @@
+<p>home wefer!</p>
+<ngx-dropzone (change)="onSelect($event)">
+  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="onRemove(f)"
+    *ngFor="let f of files" [file]="f">
+    <ngx-dropzone-label> ({{ f.type }})</ngx-dropzone-label>
+  </ngx-dropzone-image-preview>
+</ngx-dropzone>
+<div>
+  <button (click)="onUpLoad()">upload image</button>
+</div>
+<button mat-button (click)="openDialog()">Launch dialog</button>
+<ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>

@@ -1,0 +1,301 @@
+<form [formGroup]="updateMotorcycleForm" (ngSubmit)="onSubmit()">
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Datos basicos</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Marca</mat-label>
+        <mat-select placeholder="Seleccione marca" id="ddlBrand" formControlName="ddlBrand" name="ddlBrand" #brandSelect >
+          <mat-option [value]='0'>Seleccione marca</mat-option>
+          <mat-option *ngFor="let name of brandKeys" [value]="name">
+            {{brandsEnum[name]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Referencia</mat-label>
+        <mat-select id="ddlReference" formControlName="ddlReference" name="ddlReference" #referenceSelect >
+          <mat-option [value]='0'>Seleccione referencia</mat-option>
+          <mat-option *ngFor="let name of referencesKeys" [value]="name">
+            {{referencesEnum[name]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Modelo</mat-label>
+        <input matInput id="txtYear" formControlName="txtYear" name="txtYear" placeholder="Ingrese modelo"
+          type="number">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Kilometraje</mat-label>
+        <input matInput id="txtMilliage" formControlName="txtMilliage" name="txtMilliage"
+          placeholder="Ingrese kilometraje" type="number">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Peso</mat-label>
+        <input matInput id="txtWeigth" formControlName="txtWeigth" name="txtWeigth" placeholder="Ingrese peso"
+          type="number">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Placa</mat-label>
+        <input matInput id="txtRegistrationNumber" formControlName="txtRegistrationNumber" name="txtRegistrationNumber"
+          type="text" placeholder="Ingrese placa">
+      </mat-form-field>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select id="ddlStatus" formControlName="ddlStatus" name="ddlStatus" #statusSelect >
+          <mat-option [value]='0'>Seleccione estado</mat-option>
+          <mat-option *ngFor="let name of statesKeys" [value]="name">
+            {{statesEnum[name]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Motor</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Centrimetos cubicos (CC)</mat-label>
+        <input matInput id="txtCc" formControlName="txtCc" name="txtCc" type="number"
+          placeholder="Ingrese el cilindraje">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Potencia (Hp)</mat-label>
+        <input matInput id="txtPower" formControlName="txtPower" name="txtPower" type="text"
+          placeholder="Ingrese potencia">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Torque</mat-label>
+        <input matInput id="txtTorque" formControlName="txtTorque" name="txtTorque" type="text"
+          placeholder="Ingrese torque">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Capacidad del tanque</mat-label>
+        <input matInput id="txtFuelCapacity" formControlName="txtFuelCapacity" name="txtFuelCapacity" type="number"
+          placeholder="Ingrese capacidad del tanque">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Tipo de encencido</mat-label>
+        <mat-select id="ddlIgnitionType" formControlName="ddlIgnitionType" name="ddlIgnitionType" #ignitionTypeSelect>
+          <mat-option [value]='0'>Seleccione tipo de encendido</mat-option>
+          <mat-option *ngFor="let name of ignitionTypesKeys"  [value]="name">
+            {{ignitionTypesEnum[name]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Frenos</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Freno delantero</mat-label>
+        <mat-select id="ddlFrontBrake" formControlName="ddlFrontBrake" name="ddlFrontBrake" #frontBrakeSelect>
+          <mat-option [value]='0'>Seleccione freno delantero</mat-option>
+          <mat-option *ngFor="let name of breakTypesKeys" [value]="name">
+            {{breakTypesEnum[name]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Freno trasero</mat-label>
+        <mat-select id="ddlBackBrake" formControlName="ddlBackBrake" name="ddlBackBrake" #backBrakeSelect>
+          <mat-option [value]='0'>Seleccione freno trasero</mat-option>
+          <mat-option *ngFor="let name of breakTypesKeys" [value]="name">
+            {{breakTypesEnum[name]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Suspensión</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Suspención delantera</mat-label>
+        <mat-select id="ddlFrontSuspension" formControlName="ddlFrontSuspension" name="ddlFrontSuspension" #frontSuspensionSelect>
+          <mat-option [value]='0'>Seleccione suspensión delantera</mat-option>
+          <mat-option *ngFor="let name of suspensionTypesKeys" [value]="name">
+            {{suspensionTypesEnum[name]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Suspención trasera</mat-label>
+        <mat-select id="ddlRearSuspension" formControlName="ddlRearSuspension" name="ddlRearSuspension" #rearSuspensionSelect>
+          <mat-option [value]='0'>Seleccione suspensión trasera</mat-option>
+          <mat-option *ngFor="let name of suspensionTypesKeys" [value]="name">
+            {{suspensionTypesEnum[name]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Llantas</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Llanta delantera</mat-label>
+        <input matInput id="txtFrontTire" formControlName="txtFrontTire" name="txtFrontTire" type="text"
+          placeholder="Ingresa llanta delantera">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Llanta trasera</mat-label>
+        <input matInput id="txtRearTire" formControlName="txtRearTire" name="txtRearTire" type="text"
+          placeholder="Ingresa llanta trasera">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Documentos</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Fecha seguro obligatorio (SOAT)</mat-label>
+        <input matInput id="txtDateSOAT" formControlName="txtDateSOAT" name="txtDateSOAT" type="text"
+          placeholder="Ingrese fecha SOAT">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Fecha tecnomecanica</mat-label>
+        <input matInput id="txtDateTecno" formControlName="txtDateTecno" name="txtDateTecno" type="text"
+          placeholder="Ingrese fecha tecno">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Datos de venta</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Nombre del propietario</mat-label>
+        <input matInput id="txtOwnersName" formControlName="txtOwnersName" name="txtOwnersName" type="text"
+          placeholder="Ingrese nombre">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Correo del propietario</mat-label>
+        <input matInput id="txtOwnerEmail" formControlName="txtOwnerEmail" name="txtOwnerEmail" type="text"
+          placeholder="Ingrese correo">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Telefono del propietario</mat-label>
+        <input matInput id="txtOwnerPhoneNumber" formControlName="txtOwnerPhoneNumber" name="txtOwnerPhoneNumber"
+          type="text" placeholder="Ingrese numero de telefono">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Minimo valor de venta</mat-label>
+        <input matInput id="txtMinimumSaleValue" formControlName="txtMinimumSaleValue" name="txtMinimumSaleValue"
+          type="text" placeholder="Ingrese valor minimo de venta">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Valor de venta</mat-label>
+        <input matInput id="txtSellValue" formControlName="txtSellValue" name="txtSellValue" type="text"
+          placeholder="Ingrese valor de venta">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Valor de comisión</mat-label>
+        <input matInput id="txtCommissionValue" formControlName="txtCommissionValue" name="txtCommissionValue"
+          type="text" placeholder="Ingrese valor de comisión">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Datos generales</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput id="txtDescription" formControlName="txtDescription" name="txtDescription" type="text"
+          cols="30" rows="10" placeholder="Ingrese descripción"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Accesorios</mat-label>
+        <textarea matInput id="txtAccesories" formControlName="txtAccesories" name="txtAccesories" type="text" cols="30"
+          rows="10" placeholder="Ingrese accesorios"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row center-xs center-sm center-md center-lg ">
+    <h2>Imagenes</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <ngx-dropzone (change)="onSelect($event)">
+        <ngx-dropzone-label>Arrastra imagenes</ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="onRemove(f)"
+          *ngFor="let f of files" [file]="f">
+          <ngx-dropzone-label> ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+    </div>
+  </div>
+
+  <div class="row center-xs center-sm center-md center-lg ">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-md-4">
+      <button class="upload-img-button" mat-raised-button color="primary" type="submit">Guardar</button>
+    </div>
+  </div>
+
+</form>

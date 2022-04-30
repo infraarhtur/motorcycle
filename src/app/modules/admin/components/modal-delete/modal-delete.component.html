@@ -1,0 +1,23 @@
+<div class="">
+
+    <mat-card-title class="titulo-dialog"></mat-card-title>
+    <br>
+    <mat-dialog-content>
+        <p style="width: 100%; text-align: center;">
+            <mat-label>
+                ¿Desea eliminar la moto {{this.selectedItem.mark}} {{this.selectedItem.model}}
+                {{this.selectedItem.plate}}?
+            </mat-label>
+        </p>
+
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="actions-delete">
+        <div style="text-align: center;">
+            <button mat-raised-button color="primary" mat-dialog-close>Cancelar</button>
+            <button mat-raised-button color="warn" [mat-dialog-close]="1" (click)="delete()">Eliminar</button>
+
+        </div>
+    </mat-dialog-actions>
+</div>

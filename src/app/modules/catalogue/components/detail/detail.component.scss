@@ -1,0 +1,99 @@
+
+.label-motorcycle{
+    margin-bottom: 0.5re;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    background-color: #49108B;
+    color: white;
+    width: 95%;
+    margin-bottom: 15px;
+}
+
+.label-contact-us{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    background-color: #8A6DF0;
+    color: white;
+    width: 95%;
+    margin-bottom: 15px;
+}
+
+.detail-label{
+    margin-left: 5%;
+}
+
+.social{
+    font-size: 30px;
+    margin-bottom: 15%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.slider{
+    width: 100%; 
+    height: 500px; 
+    text-align:center;
+    margin:0; 
+    padding:0;
+}
+
+.tabs{
+    margin-top: 15px;
+    width: 100%;
+}
+img{
+    border-radius: 5px;
+}
+
+p{
+    margin-left: 15px;
+}
+
+.info-accordion-first{
+    width: 100%; 
+    margin-top: 2%;
+}
+
+.info-accordion{
+    width: 100%; 
+    margin-top: 3px;
+}
+
+.info-accordion-last{
+    width: 100%; 
+    margin-top: 3px;
+    margin-bottom: 2%;
+}
+
+
+// media querys
+
+@media (min-width: 100px) and (max-width: 790px) {
+
+    .detail-container{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .contact-us{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .slider{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .tabs{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+}

@@ -1,0 +1,240 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div >
+            <div class="row label-motorcycle center-xs center-sm center-md center-lg">
+                {{this.moto.brand.name}} {{this.moto.reference.name}}
+            </div>
+            <div class="row detail-label">
+                <p><strong>Precio:</strong> {{this.moto.sellValue | currency}}</p>
+            </div>
+            <div class="row detail-label">
+                <p><strong>Modelo:</strong> {{this.moto.year}}</p>
+            </div>
+            <div class="row detail-label">
+                <p><strong>Kilometraje:</strong> {{this.moto.milliage | number}}</p>
+            </div>
+            <div class="row center-xs end-sm end-md end-lg">
+                <!-- <button mat-button>
+                    <mat-icon>favorite</mat-icon>
+                </button> -->
+                <button mat-button (click)="share()">
+                    <mat-icon>share</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="contact-us">
+            <div class="row label-contact-us center-xs center-sm center-md center-lg">
+                  Contactanos
+            </div>
+            <div class="row detail-label">
+                <p><strong>Telefono: </strong><a href="tel:+573238150323">(+57) 3238150323</a></p>
+                <p><strong>Correo: </strong><a href="mailto:contacto@lasdosruedas.com?Subject=Aquí%20el%20asunto%20del%20mail">contacto@lasdosruedas.com</a></p>
+            </div>
+            <div class="row center-xs center-sm center-md center-lg">
+                <button (click)="whatsapp()" mat-button>
+                    <a style="color: black;">
+                        <i class="fab fa-whatsapp-square social"></i>
+                    </a>
+                </button>
+                <button mat-button>
+                    <a href="https://m.me/108000134936133" target="_blank" style="color: black;">
+                        <i class="fab fa-facebook-square social"></i>
+                </a>
+                    
+                </button>
+                <button mat-button>
+                    <a href="https://www.instagram.com/LasdosRuedasCo/" target="_blank" style="color: black;">
+                        <i class="fab fa-instagram social"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <div class="row">
+            <div class="slider">
+                <ng-image-slider #nav
+                  [images]="imageObject"
+                  [infinite]="false"
+                  [imageSize]="{width: '100%', height: 500}"
+                  [lazyLoading]="true"
+                  [defaultActiveImage]="1"
+                  slideImage="1">
+                </ng-image-slider>
+              </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <mat-tab-group mat-align-tabs="end" class="tabs">
+        <div class="col-lg-12">
+            <mat-tab label="Información tecnica">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="row">
+                            <mat-accordion class="info-accordion-first">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title >
+                                      <strong>Información basica</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p><strong>Marca: </strong> {{this.moto.brand.name}}</p>
+                                  <p><strong>Referencia: </strong> {{this.moto.reference.name}}</p>
+                                  <p><strong>Modelo: </strong> {{this.moto.year}}</p>
+                                  <p><strong>Kilometraje: </strong> {{this.moto.milliage | number}}</p>
+                                  <p><strong>Peso: </strong> {{this.moto.weigth}} Kg</p>
+                                  <p><strong>Placa: </strong> {{this.moto.registrationNumber}}</p>
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                        <div class="row">
+                            <mat-accordion class="info-accordion">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Motor</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p><strong>Cc: </strong> {{this.moto.cc}}</p>
+                                  <p><strong>Potencia: </strong> {{this.moto.power}}</p>
+                                  <p><strong>Torque: </strong> {{this.moto.torque}}</p>
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                        <div class="row">
+                            <mat-accordion class="info-accordion">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Frenos</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p><strong>Freno delantero: </strong> {{this.moto.frontBrake.name}}</p>
+                                  <p><strong>Freno trasero: </strong> {{this.moto.backBrake.name}}</p>
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                        <div class="row">
+                            <mat-accordion class="info-accordion">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Suspención</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p><strong>Suspención delantero: </strong> {{this.moto.frontSuspension.name}}</p>
+                                  <p><strong>Suspención trasero: </strong> {{this.moto.rearSuspension.name}}</p>
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                        <div class="row">
+                            <mat-accordion class="info-accordion-last">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Llantas</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p><strong>Llanta delantera: </strong> {{this.moto.frontTire}}</p>
+                                  <p><strong>Llanta trasera: </strong> {{this.moto.rearTire}}</p>
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+        </div>
+        <div class="col-lg-12">
+            <mat-tab label="Documentos">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="row">
+                            <mat-accordion class="info-accordion-first">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Seguro Obligatorio SOAT</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p><strong>Fecha: </strong> {{this.moto.dateSoat }}</p>
+                                  <!-- <p><strong>Descargar: </strong> <a href="#">SOAT.pdf</a></p> -->
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                        <div class="row">
+                            <mat-accordion class="info-accordion">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Tecnomecanica</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p><strong>Fecha: </strong> {{this.moto.dateTecno }}</p>
+                                  <!-- <p><strong>Descargar: </strong> <a href="#">tecnomecanica.pdf</a></p> -->
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                        <!-- <div class="row">
+                            <mat-accordion class="info-accordion-last">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Peritaje</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p><strong>Fecha: </strong> 11/11/2014</p>
+                                  <p><strong>Descargar: </strong> <a href="#">peritaje.pdf</a></p>
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div> -->
+                    </div>
+                </div>
+            </mat-tab>
+        </div>
+        <div class="col-lg-12">
+            <mat-tab label="Detalle">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="row">
+                            <mat-accordion class="info-accordion-first">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Descripción</strong> 
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p *ngIf="this.moto.description != null">{{this.moto.description}}</p>
+                                  <p *ngIf="this.moto.description == null">No se ingreso una descripción para este vehiculo</p>
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                        <div class="row">
+                            <mat-accordion class="info-accordion-last">
+                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                     (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      <strong>Accesorios</strong>
+                                    </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <p *ngIf="this.moto.accessories != null">{{this.moto.accessories}}</p>
+                                  <p *ngIf="this.moto.accessories == null">No se ingresaron accesorios para este vehiculo</p>
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+        </div>
+    </mat-tab-group>
+</div>

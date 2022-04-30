@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <ngx-dropzone (change)="onSelect($event)">
+      <ngx-dropzone-label>Arrastra imagenes</ngx-dropzone-label>
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="onRemove(f)"
+        *ngFor="let f of files" [file]="f">
+        <ngx-dropzone-label> ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+    </ngx-dropzone>
+  </div>
+</div>
+<div class="row center-xs center-sm center-md center-lg button-container">
+    <div class="col-xs-3">
+      <button mat-raised-button color="primary"  icon='home' (click)="onUpLoad()">subir imagenes</button>
+      <span *ngFor="let item of links">
+        <p>{{item}}</p>
+      </span>
+    </div>
+</div>
+<div class="row center-xs center-sm center-md center-lg">
+    <h2>Crear motos</h2>
+</div>
+<div class="row center-xs center-sm center-md center-lg">
+    <input type="file" (change)="uploadData($event)" name="uploadExcel">
+</div>
+<div class="row center-xs center-sm center-md center-lg">
+  <a class="download-excel" href="../../../../../assets/files/CargarMotos.xlsx">Descargar plantilla</a>
+</div>
+

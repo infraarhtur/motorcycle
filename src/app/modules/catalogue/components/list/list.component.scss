@@ -1,0 +1,89 @@
+.crop-image{
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+mat-card-content > p{
+    text-align: justify;
+}
+
+.catalog{
+    margin-bottom: 1%;
+}
+
+.form-full-width {
+    width: 100%;
+}
+
+.label-brand{
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    background-color: #49108B;
+    color: white;
+}
+
+.label-price{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    background-color: #8A6DF0;
+    color: white;
+}
+
+.label-miliage{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    background-color: #59A7D1;
+    color: white;
+}
+
+mat-icon{
+    color: gray;
+}
+
+.pagination{
+    text-align: center;
+    width: 100%;
+}
+
+.ItemPerPage{
+    max-height: 30px;
+    margin-top: 12px;
+}
+
+@media (min-width: 100px) and (max-width: 790px) {
+
+    .filters-container{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .catalog-container{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+}

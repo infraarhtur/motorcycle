@@ -1,0 +1,135 @@
+<div class="row">
+  <!-- section filters -->
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 filters-container">
+    <form [formGroup]='filtersForm' (ngSubmit)="searchFilter($event)">
+      <div class="row end-xs" style="width: 90%;">
+        <button mat-icon-button color="primary"  matTooltip="Limpiar filtros" matTooltipPosition='left' aria-label="Example icon button with a menu icon" (click)="resetFilter($event)">
+          <mat-icon svgIcon="remove-filter" style ='color:black'>restore</mat-icon>
+        </button>
+      </div>
+      <div>
+        <div class="row label-brand center-xs center-sm center-md center-lg">
+          Marca y modelo 
+        </div>
+      <div class="row">
+          <!-- brand filter -->
+          <mat-form-field appearance="outline" style="width:90%;">
+            <mat-label>Marca</mat-label>
+            <mat-select placeholder="Seleccione marca" formControlName="brand" [(ngModel)]="brandField">
+              <mat-option [value]='0'>Todas</mat-option>
+              <mat-option *ngFor="let name of brandKeys" [value]="name">
+                {{brandsEnum[name]}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- model filter -->
+          <mat-form-field appearance="outline" style="width: 90%;">
+            <mat-label>Referencia</mat-label>
+            <mat-select placeholder="Seleccione referencia" formControlName="reference" [(ngModel)]="referenceField">
+              <mat-option [value]='0'>Todos</mat-option>
+              <mat-option *ngFor="let name of referencesKeys" [value]="name">
+                {{referencesEnum[name]}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+      <!-- <mat-divider></mat-divider> -->
+      <div class="row label-price center-xs center-sm center-md center-lg">
+        Rango de precio
+      </div>
+      <!-- price range filter -->
+      <div class="row">
+        <mat-form-field appearance="outline" style="width: 90%;">
+          <mat-label>Precio minimo</mat-label>
+          <input matInput type="number" placeholder="Ingrese precio minimo" formControlName="minimalPrice" minlength="1" style='display: none;'>
+          <mat-slider 
+           thumbLabel
+          [displayWith]="formatLabel"  step="4" tickInterval="auto"  min="{{priceMin}}" max="{{priceMax}}" step="1000000" 
+          (change)="onChangeMinimalPrice($event)"   value="{{this.minimalPriceField }}"
+          
+          ></mat-slider>  
+          {{ this.minimalPriceField |currency}}
+  
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 90%;">
+          <mat-label>Precio maximo</mat-label>
+          <input matInput type="number" placeholder="Ingrese precio maximo" formControlName="maximumPrice" maxlength="4" style='display: none;'>
+          <mat-slider 
+          thumbLabel
+         [displayWith]="formatLabel"  step="4" tickInterval="auto"  min="{{priceMin}}" max="{{priceMax}}" step="1000000" value="{{this.maximumPriceField }}"
+         (change)="onChangemaximumPrice($event)"
+         
+         ></mat-slider>  
+         {{ this.maximumPriceField |currency}}
+        </mat-form-field>
+      </div>
+      <!-- <mat-divider></mat-divider> -->
+      <div class="row label-miliage center-xs center-sm center-md center-lg">
+        Kilometraje
+      </div>
+      <!-- milliage range filter -->
+      <div class="row">
+        <mat-form-field appearance="outline" style="width: 90%;">
+          <mat-label>Kilometraje minimo</mat-label>
+          <input matInput type="number" placeholder="Ingrese kilometraje minimo" formControlName="minimumMileage" style='display: none;' >
+  
+          <mat-slider 
+          thumbLabel
+         [displayWith]="formatLabelKM"  step="4" tickInterval="auto"  min="{{this.minMilleage}}" max="{{this.maxMilleage}}" step="100" value="{{this.minMilleageField}}" (change)="onChangeMinMilleage($event)"
+         ></mat-slider> 
+         {{this.minMilleageField | number}}
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 90%;">
+          <mat-label>Kilometraje maximo</mat-label>
+          <input matInput type="number" placeholder="Ingrese kilometraje maximo" formControlName="maximumMileage" style='display: none;'>
+          
+          <mat-slider 
+          thumbLabel
+         [displayWith]="formatLabelKM"  step="4" tickInterval="auto"  min="{{this.minMilleage}}" max="{{this.maxMilleage}}" step="100" value="{{this.maxMilleageField}}" (change)="onChangeMaxMilleage($event)"
+         ></mat-slider> 
+         {{ this.maxMilleageField | number}}
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  </div>
+  <!-- section catalogue grid -->
+  <div class="col-lg-9 col-md-9 col-sm-9 catalog-container">
+    <div class="row">
+      <div
+        *ngFor="let moto of this.motorcycleLst | paginate: { itemsPerPage: pageSize, currentPage: actualPage, totalItems: totalLength}"
+        class="col-xs-12 col-sm-4 col-md-4 col-lg-4 catalog">
+        <!-- card by motor -->
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{moto.brand.name}} {{moto.reference.name}}</mat-card-title>
+            <mat-card-subtitle>Km {{moto.milliage}} | {{moto.year}}</mat-card-subtitle>
+          </mat-card-header>
+          <img [routerLink]="['/Catalogue', moto.id]"  mat-card-image class="crop-image" [src]="moto.principalImage"
+            alt="Principal image">
+          <mat-card-content>
+            <p>
+              Precio: {{moto.sellValue | currency}}
+            </p>
+          </mat-card-content>
+          <!-- <mat-card-actions class="end-lg">
+            <button mat-button>
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+    </div>
+    <div class="row center-xs center-md center-sm center-lg"
+      *ngIf="this.motorcycleLst != null && this.motorcycleLst.length > 10">
+      <pagination-controls (pageChange)="actualPage = $event" [directionLinks]="directionLinks" previousLabel="Atrás"
+        nextLabel="Adelante"></pagination-controls>
+
+      <select class="browser-default ItemPerPage" (change)="handlePageSizeChange($event)">
+        <option *ngFor="let size of pageSizes" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.footer-container{
+    background-color: #116189;
+    height: auto;
+   background-image:  radial-gradient(circle at 50% -20.71%, #26E3B2 0%, #59A7D1 50%);
+   padding-top: 20px;
+   padding-bottom: 20px;
+   margin-top: 2rem;
+}
+
+.landing-link:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+img{
+    width: 350px;
+}
+
+footer{
+    background-color: cadetblue;
+}
+
+button.facebook{
+    background: #3B5998;
+    margin: 0.3rem;
+}
+
+button.instagram{
+    background: #7738AD;
+    margin: 0.3rem;
+}
+
+button.whatsapp{
+    background: #1C9513;
+    margin: 0.3rem;
+}
+
+button.linkedin{
+    background: #0071AD;
+    margin: 0.3rem;
+}
+
+.social-button{
+    color: #FFFFFF;
+    font-size: 20px;
+} 

@@ -1,0 +1,41 @@
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 60%;
+    position: relative;
+    left: 50px;
+    top: 15px;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  .button-add{
+    position: relative;
+    left: 50px;
+  }
+  .tamaño-iconos{
+    font-size: 2em;
+  }
+  
+  .tableContainer{
+
+    width: 99%;
+    padding: 10px;
+  }
+
+  table.mat-table {
+    width: 99%;
+    border-spacing: 0;
+}
+.mat-paginator {
+  width: 99%;
+  display: block;
+}
+.actions{
+  width: 80px;
+}
+
+.w-description{
+  width: 20%;
+}
