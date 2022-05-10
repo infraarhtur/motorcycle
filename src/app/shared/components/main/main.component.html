@@ -1,4 +1,7 @@
-<mat-sidenav-container class="sidenav-container" [hasBackdrop]="true">
+
+ 
+  <mat-sidenav-container class="sidenav-container"  [hasBackdrop]="true">
+  
     <mat-sidenav
       #drawer
       class="sidenav"
@@ -29,7 +32,7 @@
           <a>Catalogo</a>
       </div>
       <!-- este es el menu clasico -->
-      <mat-nav-list class="sidebar-menu">
+      <!-- <mat-nav-list class="sidebar-menu"> -->
        
   
         <!-- <app-menu-list-items
@@ -37,40 +40,40 @@
           *ngFor="let item of navItems"
           [item]="item"
         ></app-menu-list-items> -->
-      </mat-nav-list>
+      <!-- </mat-nav-list> -->
     </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar  class="menu">
-        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-          <mat-icon class="mat-icon-singOut" fontSet="fas" fontIcon="fa-bars"></mat-icon>
-        </button>
-        <img style="height: 100px; width: 200px; margin-right: 2rem;" src="../../../../assets/svg/LasDosRuedasBlanco.png" alt="">
-        <span class="division-titulo"></span>
-        <span class="example-spacer"></span>
-       <span style="color:white; margin-right: 3px;"> {{this.identity}}</span>
-        <button *ngIf="this.isIdentity" 
-        mat-button
-          (click)="logUp()">
-        <span>
-          Salir
-          <i class="fa fa-arrow-right" style="margin-left: 5px;" aria-hidden="true"></i>
-  
-        </span>
-        </button>
-       
+    
+  <mat-sidenav-content>
+    <mat-toolbar  class="menu">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon class="mat-icon-singOut" fontSet="fas" fontIcon="fa-bars"></mat-icon>
+      </button>
+      <img style="height: 100px; width: 200px;" src="../../../../assets/svg/LasDosRuedasBlanco.png" alt="">
+      <span class="division-titulo"></span>
+      <span class="example-spacer"></span>
+     <span style="color:white; margin-right: 3px;"> {{this.identity}}</span>
+      <button *ngIf="this.isIdentity" 
+      mat-button
+        (click)="logUp()">
+      <span>
+        Salir
+        <i class="fa fa-arrow-right" style="margin-left: 5px;" aria-hidden="true"></i>
+    
+      </span>
+      </button>
+      <div >
+    
         <button *ngIf="!this.isIdentity" 
         mat-button
+        matTooltip="Iniciar sesión"
           (click)="logIn()">
-        <span>
-          Iniciar session
           <i class="fa fa-user" style="margin-left: 5px;" aria-hidden="true"></i>
-  
-        </span>
         </button>
-      </mat-toolbar>
-  
-      <ng-content> </ng-content>
-      <app-footer></app-footer>
-    </mat-sidenav-content>
+      </div>
+    </mat-toolbar>
+    <ng-content> </ng-content>
+    <app-footer></app-footer>
+    
+  </mat-sidenav-content>
   </mat-sidenav-container>
   

@@ -13,7 +13,7 @@
         </div>
       <div class="row">
           <!-- brand filter -->
-          <mat-form-field appearance="outline" style="width:90%;">
+          <mat-form-field appearance="outline" style="width:93%;">
             <mat-label>Marca</mat-label>
             <mat-select placeholder="Seleccione marca" formControlName="brand" [(ngModel)]="brandField">
               <mat-option [value]='0'>Todas</mat-option>
@@ -23,7 +23,7 @@
             </mat-select>
           </mat-form-field>
           <!-- model filter -->
-          <mat-form-field appearance="outline" style="width: 90%;">
+          <mat-form-field appearance="outline" style="width: 93%;">
             <mat-label>Referencia</mat-label>
             <mat-select placeholder="Seleccione referencia" formControlName="reference" [(ngModel)]="referenceField">
               <mat-option [value]='0'>Todos</mat-option>
@@ -39,7 +39,7 @@
       </div>
       <!-- price range filter -->
       <div class="row">
-        <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-form-field appearance="outline" style="width: 93%;">
           <mat-label>Precio minimo</mat-label>
           <input matInput type="number" placeholder="Ingrese precio minimo" formControlName="minimalPrice" minlength="1" style='display: none;'>
           <mat-slider 
@@ -51,7 +51,7 @@
           {{ this.minimalPriceField |currency}}
   
         </mat-form-field>
-        <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-form-field appearance="outline" style="width: 93%;">
           <mat-label>Precio maximo</mat-label>
           <input matInput type="number" placeholder="Ingrese precio maximo" formControlName="maximumPrice" maxlength="4" style='display: none;'>
           <mat-slider 
@@ -69,7 +69,7 @@
       </div>
       <!-- milliage range filter -->
       <div class="row">
-        <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-form-field appearance="outline" style="width: 93%;">
           <mat-label>Kilometraje minimo</mat-label>
           <input matInput type="number" placeholder="Ingrese kilometraje minimo" formControlName="minimumMileage" style='display: none;' >
   
@@ -79,7 +79,7 @@
          ></mat-slider> 
          {{this.minMilleageField | number}}
         </mat-form-field>
-        <mat-form-field appearance="outline" style="width: 90%;">
+        <mat-form-field appearance="outline" style="width: 93%;">
           <mat-label>Kilometraje maximo</mat-label>
           <input matInput type="number" placeholder="Ingrese kilometraje maximo" formControlName="maximumMileage" style='display: none;'>
           

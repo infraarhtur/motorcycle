@@ -277,3 +277,12 @@ pre {
 
 
 /* #EndRegion o */
+.mat-drawer-content {
+  // overflow-x: hidden;
+  overflow-x: clip  !important;
+  // width: auto;
+  
+}
+.mat-sidenav-content .mat-drawer-content {
+  overflow: initial  !important;
+}
